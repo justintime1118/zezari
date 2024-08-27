@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import zezari.zezari_prototype.dto.UpdateUserRequest;
 
 import java.util.Collection;
 import java.util.List;
@@ -28,7 +29,7 @@ public class User implements UserDetails {
     @Column(name = "password") // 암호화한 형태로 저장
     private String password;
 
-    @Column(name = "phone_number", nullable = false, unique = true)
+    @Column(name = "phone_number", nullable = true, unique = true)
     private String phoneNumber;
 
     @Column(name = "is_deleted", nullable = false)
@@ -39,6 +40,11 @@ public class User implements UserDetails {
         this.username = username;
         this.password = password;
         this.phoneNumber = phoneNumber;
+    }
+
+    public void update(UpdateUserRequest request) {
+        this.password = request.getPassword();
+        this.phoneNumber = request.getPhoneNumber();
     }
 
     @Override
