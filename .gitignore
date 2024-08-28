@@ -3,6 +3,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+/images/
 
 ### IntelliJ IDEA ###
 .idea
@@ -15,3 +16,4 @@ out/
 
 ### VS Code ###
 .vscode/
+
